@@ -9,6 +9,10 @@
 
 int parseMessage(msg_data_t *msg, char *message_buff, size_t len)
 {
+    FILE *fp = NULL;
+    g_print("RI!\n");
+	fp = fopen("/tmp/zanChatLog", "w");
+    g_print("File...\n");
     long int_val;
     char *sp = NULL;
     char *ep = NULL;
@@ -99,6 +103,11 @@ int parseMessage(msg_data_t *msg, char *message_buff, size_t len)
     ++ep;
     msg->username = strdup(sp);
     printf("Name:%s\n", msg->username);
+    char *s = msg->username;
+    // fprintf(fp, "-- Received --");
+    fputs(s, fp);
+    fprintf(fp, "\n");
+    fclose(fp);
     sp = ep;
 
     /*

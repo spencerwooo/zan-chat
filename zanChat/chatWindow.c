@@ -154,11 +154,20 @@ void showMessage(char *message, textView *textViewAll)
 	text = strtok(message, delim);
 	filename = strtok(NULL, delim);
 	name = textViewAll->name;
+	
+	FILE *chatee;
+	chatee = fopen("/tmp/zanChatLog", "r");
+	
+	char chateeName[50];
+	memset(chateeName, 0, sizeof(chateeName));
+	fgets(chateeName, 50, (FILE*)chatee);
+
+	g_print("-- Received: %s--\n", chateeName);
 	getSystemTime(time);
 	if (ptr == NULL)
 	{
 		printf("ptr == NULL\n");
-		sprintf(content, "%s %s %s\n%s\n", name, time, ":", text);
+		sprintf(content, "%s %s %s\n%s\n", chateeName, time, ":", text);
 		gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(textViewAll->buffer1), &start, &end);
 		gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, content, -1);
 	}
@@ -166,7 +175,7 @@ void showMessage(char *message, textView *textViewAll)
 	{
 		if (strcmp(ptr, message) == 0)
 		{
-			sprintf(content, "%s %s %s\n", name, time, ":");
+			sprintf(content, "%s %s %s\n", chateeName, time, ":");
 
 			g_print("%s\n", content);
 
@@ -180,12 +189,12 @@ void showMessage(char *message, textView *textViewAll)
 			gtk_text_buffer_get_end_iter(textViewAll->buffer1, &end);
 			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, "\n", -1);
 
-			g_print("%s\n", "RECIEVE");
+			g_print("%s\n", "RECEIVE");
 		}
 		//printf("ptr != NULL\n");
 		else
 		{
-			sprintf(content, "%s %s %s\n%s", name, time, ":", text);
+			sprintf(content, "%s %s %s\n%s", chateeName, time, ":", text);
 
 			g_print("%s\n", content);
 
@@ -199,7 +208,7 @@ void showMessage(char *message, textView *textViewAll)
 			gtk_text_buffer_get_end_iter(textViewAll->buffer1, &end);
 			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, "\n", -1);
 
-			g_print("%s\n", "RECIEVE");
+			g_print("%s\n", "RECEIVE");
 		}
 	}
 }

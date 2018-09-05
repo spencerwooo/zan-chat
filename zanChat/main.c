@@ -353,7 +353,7 @@ void *create(int argc, char *argv[])
 	g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(destroyAll), NULL);
 	g_signal_connect_swapped(G_OBJECT(window), "delete_event", G_CALLBACK(gtk_widget_destroy), G_OBJECT(window));
 	gtk_window_set_title(GTK_WINDOW(window), "zanChat");
-	gtk_window_set_icon(GTK_WINDOW(window), strToPixbufConverter("Source/Icon/logo.png"));
+	gtk_window_set_icon(GTK_WINDOW(window), strToPixbufConverter("Source/Icon/User/logo.png"));
 
 	// skin settings
 	GdkPixbuf *pixbuf = NULL;
@@ -422,7 +422,7 @@ void *create(int argc, char *argv[])
 /*作成日期： 2018-09-02
 /*参数：void
 /*返回值：void
-/*作者： 阿琪，刘嘉伟
+/*作者： 阿琪，刘嘉伟，还有一丢丢万伯阳
 /***************************************************/
 
 int win = 0, goin = 0;
@@ -442,7 +442,7 @@ void on_button_clicked(GtkWidget *button, gpointer data)
 
 	int tag = 1;
 	FILE *fp;
-	fp = fopen("./Users/log", "r");
+	fp = fopen("./Users/login", "r");
 	for (int i = 0; i < 10; i++)
 	{
 		tag = 1;
@@ -526,6 +526,7 @@ void login(int argc, char *argv[])
 	GtkWidget *box;
 	GtkWidget *box1;
 	GtkWidget *box2;
+	GtkWidget *box3;
 	GtkWidget *label1;
 	GtkWidget *label2;
 	GtkWidget *button;
@@ -534,19 +535,25 @@ void login(int argc, char *argv[])
 	gtk_init(&argc, &argv);
 	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(on_clicked), NULL);
-	gtk_window_set_title(GTK_WINDOW(window), "登录窗口");
+	gtk_window_set_title(GTK_WINDOW(window), "ZanChat");
 	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
-	// gtk_window_set_default_size(GTK_WINDOW(window), 280, 200);
-	gtk_container_set_border_width(GTK_CONTAINER(window), 20);
+	// gtk_window_set_default_size(GTK_WINDOW(window), 300, 700);
+	gtk_container_set_border_width(GTK_CONTAINER(window), 50);
 
 	box = gtk_vbox_new(FALSE, 0);
 	gtk_container_add(GTK_CONTAINER(window), box);
+
+	box3 = gtk_hbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(box), box3, FALSE, FALSE, 5);
 	box1 = gtk_hbox_new(FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(box), box1, FALSE, FALSE, 5);
 	box2 = gtk_hbox_new(FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(box), box2, FALSE, FALSE, 5);
 	sep = gtk_hseparator_new();
 	gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 5);
+
+	GtkWidget *image_one = gtk_image_new_from_file("./Source/Icon/User/logo.png");
+	gtk_container_add(GTK_CONTAINER(box3), image_one);
 
 	label1 = gtk_label_new("账  号：");
 	entry1 = gtk_entry_new();

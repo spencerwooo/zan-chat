@@ -190,7 +190,7 @@ void create_calendar()
                    G_CALLBACK(gtk_widget_destroyed),
                    NULL);
 
-  gtk_window_set_title(GTK_WINDOW(window), "Calendar - mushRoom");
+  gtk_window_set_title(GTK_WINDOW(window), "Calendar - zanChat");
   gtk_container_set_border_width(GTK_CONTAINER(window), 5);
 
   g_signal_connect(G_OBJECT(window), "delete-event",
