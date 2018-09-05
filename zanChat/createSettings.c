@@ -245,6 +245,7 @@ void setSkin1()
 	gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, &bitmap, 128);   // alpha小于128认为透明
 	gtk_widget_shape_combine_mask(GTK_WIDGET(vbox_main), bitmap, 0, 0); // 设置透明蒙板
 	gdk_window_set_back_pixmap(vbox_main->window, pixmap, FALSE);		// 设置窗口背景
+	gtk_window_set_icon(GTK_WINDOW(window), strToPixbufConverter("Source/Icon/logo.png"));
 	g_object_unref(pixbuf);
 	g_object_unref(bitmap);
 	g_object_unref(pixmap);
@@ -261,6 +262,7 @@ void setSkin2()
 	gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, &bitmap, 128);   // alpha小于128认为透明
 	gtk_widget_shape_combine_mask(GTK_WIDGET(vbox_main), bitmap, 0, 0); // 设置透明蒙板
 	gdk_window_set_back_pixmap(vbox_main->window, pixmap, FALSE);		// 设置窗口背景
+	gtk_window_set_icon(GTK_WINDOW(window), strToPixbufConverter("Source/Icon/logo.png"));
 	g_object_unref(pixbuf);
 	g_object_unref(bitmap);
 	g_object_unref(pixmap);
@@ -277,6 +279,7 @@ void setSkin3()
 	gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, &bitmap, 128);   // alpha小于128认为透明
 	gtk_widget_shape_combine_mask(GTK_WIDGET(vbox_main), bitmap, 0, 0); // 设置透明蒙板
 	gdk_window_set_back_pixmap(vbox_main->window, pixmap, FALSE);		// 设置窗口背景
+	gtk_window_set_icon(GTK_WINDOW(window), strToPixbufConverter("Source/Icon/logo.png"));
 	g_object_unref(pixbuf);
 	g_object_unref(bitmap);
 	g_object_unref(pixmap);
@@ -293,6 +296,7 @@ void setSkin4()
 	gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, &bitmap, 128);   // alpha小于128认为透明
 	gtk_widget_shape_combine_mask(GTK_WIDGET(vbox_main), bitmap, 0, 0); // 设置透明蒙板
 	gdk_window_set_back_pixmap(vbox_main->window, pixmap, FALSE);		// 设置窗口背景
+	gtk_window_set_icon(GTK_WINDOW(window), strToPixbufConverter("Source/Icon/logo.png"));
 	g_object_unref(pixbuf);
 	g_object_unref(bitmap);
 	g_object_unref(pixmap);

@@ -20,7 +20,7 @@
 /**************************************************/
 /*名称：		main.c
 /*描述：		主界面窗口，定义主调函数、初始化函数等功能主函数
-/*作成日期： 2017-09-06
+/*作成日期： 2018-09-06
 /*作者：		唐回峰、周育聪
 /***************************************************/
 
@@ -71,7 +71,7 @@ struct Msg *Msghead = NULL;
 /**************************************************/
 /*名称：create_file_dir
 /*描述：创建程序所需文件夹
-/*作成日期： 2017-08-31
+/*作成日期： 2018-08-31
 /*参数：void
 /*返回值：void
 /*作者： 唐回峰
@@ -105,7 +105,7 @@ void create_chat_file_dir()
 /**************************************************/
 /*名称：enter_ip
 /*描述：回调函数，显示ip查询窗口
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：
 /*		参数1：GtkWidget *、widget、点击按钮控件
 /*		参数2：GtkWidget *、entry、输入窗口
@@ -133,7 +133,7 @@ void enter_ip(GtkWidget *widget, GtkWidget *entry)
 /**************************************************/
 /*名称：createUserStaff
 /*描述：初始化用户信息显示区域控件
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：void
 /*返回值：void
 /*作者： 唐回峰
@@ -204,7 +204,7 @@ GtkWidget *view;
 /**************************************************/
 /*名称：remove_all
 /*描述：清除主窗口列表中信息
-/*作成日期： 2017-09-01
+/*作成日期： 2018-09-01
 /*参数：void
 /*返回值：void
 /*作者： 唐回峰
@@ -229,7 +229,7 @@ void remove_all(void)
 /*名称：getVboxMid
 /*描述：生成主界面中好友列表，调用全局变量head
 /*		注意：head并非在本函数初始化
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：void
 /*返回值：void
 /*作者： 周育聪
@@ -332,7 +332,7 @@ void getVboxMid()
 /**************************************************/
 /*名称：create
 /*描述：生成主窗口界面，初始化
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：void
 /*返回值：void
 /*作者： 唐回峰、周育聪
@@ -353,7 +353,7 @@ void *create(int argc, char *argv[])
 	g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(destroyAll), NULL);
 	g_signal_connect_swapped(G_OBJECT(window), "delete_event", G_CALLBACK(gtk_widget_destroy), G_OBJECT(window));
 	gtk_window_set_title(GTK_WINDOW(window), "zanChat");
-	gtk_window_set_icon(GTK_WINDOW(window), strToPixbufConverter("./Source/Icon/mushRoomlogo.jpg"));
+	gtk_window_set_icon(GTK_WINDOW(window), strToPixbufConverter("Source/Icon/logo.png"));
 
 	// skin settings
 	GdkPixbuf *pixbuf = NULL;
@@ -412,7 +412,7 @@ void *create(int argc, char *argv[])
 
 	gtk_widget_show_all(window);
 
-	//createChatWindow("127.0.0.1", "Someone's name", "2017-09-06-10:03\nhello - -\0", "Hello it's zyc -- ", 1, 1);
+	//createChatWindow("127.0.0.1", "Someone's name", "2018-09-06-10:03\nhello - -\0", "Hello it's zyc -- ", 1, 1);
 
 	gtk_main();
 }
@@ -422,7 +422,7 @@ void *create(int argc, char *argv[])
 /*作成日期： 2018-09-02
 /*参数：void
 /*返回值：void
-/*作者： Archie
+/*作者： 阿琪，刘嘉伟
 /***************************************************/
 
 int win = 0, goin = 0;
@@ -442,7 +442,7 @@ void on_button_clicked(GtkWidget *button, gpointer data)
 
 	int tag = 1;
 	FILE *fp;
-	fp = fopen("./users/log", "r");
+	fp = fopen("./Users/log", "r");
 	for (int i = 0; i < 10; i++)
 	{
 		tag = 1;
@@ -536,6 +536,7 @@ void login(int argc, char *argv[])
 	g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(on_clicked), NULL);
 	gtk_window_set_title(GTK_WINDOW(window), "登录窗口");
 	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+	// gtk_window_set_default_size(GTK_WINDOW(window), 280, 200);
 	gtk_container_set_border_width(GTK_CONTAINER(window), 20);
 
 	box = gtk_vbox_new(FALSE, 0);
@@ -571,7 +572,7 @@ void login(int argc, char *argv[])
 /**************************************************/
 /*名称：init_socket
 /*描述：初始化socket连接等信息
-/*作成日期： 2017-09-04
+/*作成日期： 2018-09-04
 /*参数：
         参数1：int*、sock、套接字
         参数2：sockaddr_in*、addr、本地socket信息
@@ -603,7 +604,7 @@ void *ui_start()
 /**************************************************/
 /*名称：main
 /*描述：主函数，程序开始的接口
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：
         参数1：GtkWidget *、 button
         参数2：filename_textView *filename_textViewAll
