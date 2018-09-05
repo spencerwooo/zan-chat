@@ -11,7 +11,7 @@
 作者：周育聪
 */
 /**********************************************/
-GtkWidget* getMenu_right(void);
+GtkWidget *getMenu_right(void);
 /**********************************************/
 /*
 函数名：	void look_item(GtkWidget *widget, gpointer entry);
@@ -61,7 +61,7 @@ void right_response(gchar *string);
 作者：唐回峰
 */
 /**********************************************/
-static gint right_button_press (GtkWidget * wid, GdkEvent * event);
+static gint right_button_press(GtkWidget *wid, GdkEvent *event);
 /**********************************************/
 /*
 函数名：	void ga_add_popup_menu (GtkWidget * wid, GtkMenu * menu);
@@ -71,9 +71,9 @@ static gint right_button_press (GtkWidget * wid, GdkEvent * event);
 作者：邓竣麟、孙明君
 */
 /**********************************************/
-void ga_add_popup_menu (GtkWidget * wid, GtkMenu * menu);
+void ga_add_popup_menu(GtkWidget *wid, GtkMenu *menu);
 
-void get_usr_info(char *name,char *group,char *ip,char *sig, int img_code, int avatar_code);
+void get_usr_info(char *name, char *group, char *ip, char *sig, int img_code, int avatar_code);
 
 extern GtkWidget *entry;
 

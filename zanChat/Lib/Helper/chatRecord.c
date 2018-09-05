@@ -7,14 +7,14 @@
 /*作者： 唐回峰、孙明君、刘静
 /***************************************************/
 
-struct chatRecord * createRecordNode(char * username,char * date,char * ip,char * record)
+struct chatRecord *createRecordNode(char *username, char *date, char *ip, char *record)
 {
 	struct chatRecord *p;
-	p=(struct chatRecord *) malloc (sizeof(struct chatRecord));
-	strcpy(p->username,username);
-	strcpy(p->date,date);
-	strcpy(p->record,record);
-	p->next=NULL;
+	p = (struct chatRecord *)malloc(sizeof(struct chatRecord));
+	strcpy(p->username, username);
+	strcpy(p->date, date);
+	strcpy(p->record, record);
+	p->next = NULL;
 	return p;
 }
 
@@ -29,44 +29,43 @@ struct chatRecord * createRecordNode(char * username,char * date,char * ip,char 
 /*返回值：void
 /*作者： 刘静、唐回峰
 /***************************************************/
-void saveRecord(struct chatRecord * head,char * ip,char * date)
-{	
-	FILE * fp;
+void saveRecord(struct chatRecord *head, char *ip, char *date)
+{
+	FILE *fp;
 	char fileName[SIZE];
-	char  record[RECORD_LEN];
+	char record[RECORD_LEN];
 	struct chatRecord *p = head;
-	
-	strcpy(fileName,ip);
-	strcat(fileName,"_");
-	strcat(fileName,date);
-	strcat(fileName,".txt");
+
+	strcpy(fileName, ip);
+	strcat(fileName, "_");
+	strcat(fileName, date);
+	strcat(fileName, ".txt");
 	char path[80] = {0};
 	getcwd(path, 80);
 	strcat(path, "/ChatRecord/");
 	strcat(path, fileName);
 
-	fp = fopen(path,SAVE_MODE);
-	if(NULL == fp)
+	fp = fopen(path, SAVE_MODE);
+	if (NULL == fp)
 	{
-		return ;
+		return;
 	}
 
-	while(NULL != p)
+	while (NULL != p)
 	{
-		nodeToRecord(p,FILE_FORMAT,record);
+		nodeToRecord(p, FILE_FORMAT, record);
 		//write into file
-		fputs(record,fp);
-		p=p->next;
+		fputs(record, fp);
+		p = p->next;
 	}
 	fclose(fp);
 	//close file
 }
 
-
-struct chatRecord * setOffRecord(struct chatRecord * head)
+struct chatRecord *setOffRecord(struct chatRecord *head)
 {
 	struct chatRecord *tmp = head;
-	while(tmp->next != NULL)
+	while (tmp->next != NULL)
 	{
 		tmp = head->next;
 		free(head);
@@ -86,80 +85,81 @@ struct chatRecord * setOffRecord(struct chatRecord * head)
 /*返回值：struct chatRecord *、消息文本链表头结点
 /*作者： 刘静、唐回峰
 /***************************************************/
-struct chatRecord * readRecord(char * ip,char * date)
+struct chatRecord *readRecord(char *ip, char *date)
 {
-	FILE * fp;
+	FILE *fp;
 	char fileName[SIZE];
-	struct chatRecord * head=NULL;
+	struct chatRecord *head = NULL;
 	char line[ONE_RECORD_SIZE];
-	struct chatRecord * p=head;
-	strcpy(fileName,ip);
-	strcat(fileName,"_");
-	strcat(fileName,date);
-	strcat(fileName,".txt");
+	struct chatRecord *p = head;
+	strcpy(fileName, ip);
+	strcat(fileName, "_");
+	strcat(fileName, date);
+	strcat(fileName, ".txt");
 
 	char path[80] = {0};
 	getcwd(path, 80);
 	strcat(path, "/ChatRecord/");
 	strcat(path, fileName);
 
-	fp=fopen(path,READ_MODE);
-	if(NULL == fp)
+	fp = fopen(path, READ_MODE);
+	if (NULL == fp)
 	{
-		return head ;
+		return head;
 	}
-	while(NULL != fgets(line,ONE_RECORD_SIZE,fp))
+	while (NULL != fgets(line, ONE_RECORD_SIZE, fp))
 	{
-		p=recordParser(line);
-		head=addRecordNode(head,p);
+		p = recordParser(line);
+		head = addRecordNode(head, p);
 	}
 	fclose(fp);
 	return head;
 }
 
-
-void nodeToRecord(struct chatRecord *node,int type,char * string)
+void nodeToRecord(struct chatRecord *node, int type, char *string)
 {
-//	char  string[200];
-	switch(type)
+	//	char  string[200];
+	switch (type)
 	{
-		case FILE_FORMAT:
-				strcpy(string,node->username);
-				strcat(string,"  ");
-				strcat(string,"(");
-				strcat(string,node->date);
-				strcat(string,")");
-				strcat(string,"    ");
-				strcat(string,node->record);
-				strcat(string,"\n");
-				break;
-		case VIEW_FORMAT:
-				strcpy(string,node->username);
-				strcat(string,"  ");
-				strcat(string,"(");
-				strcat(string,node->date);
-				strcat(string,")");
-				strcat(string,":\n");
-				strcat(string,node->record);
-				break;
+	case FILE_FORMAT:
+		strcpy(string, node->username);
+		strcat(string, "  ");
+		strcat(string, "(");
+		strcat(string, node->date);
+		strcat(string, ")");
+		strcat(string, "    ");
+		strcat(string, node->record);
+		strcat(string, "\n");
+		break;
+	case VIEW_FORMAT:
+		strcpy(string, node->username);
+		strcat(string, "  ");
+		strcat(string, "(");
+		strcat(string, node->date);
+		strcat(string, ")");
+		strcat(string, ":\n");
+		strcat(string, node->record);
+		break;
 	}
-//	return string;
+	//	return string;
 }
 
-struct chatRecord * addRecordNode(struct chatRecord * head,struct chatRecord * node)
+struct chatRecord *addRecordNode(struct chatRecord *head, struct chatRecord *node)
 {
 	struct chatRecord *p = head;
 	//struct chatRecord *p1 = p;
-	if(NULL == head){
-		head=node;
-		node->next=NULL;
+	if (NULL == head)
+	{
+		head = node;
+		node->next = NULL;
 		return head;
 	}
 	//尾部插入法
-	while(p->next != NULL){
-		p=p->next;
+	while (p->next != NULL)
+	{
+		p = p->next;
 	}
-	p->next=node;
+	p->next = node;
 	return head;
 }
 
@@ -172,27 +172,27 @@ struct chatRecord * addRecordNode(struct chatRecord * head,struct chatRecord * n
 /*返回值：void
 /*作者： 唐回峰
 /***************************************************/
-void record_display(struct chatRecord * head)
+void record_display(struct chatRecord *head)
 {
-	struct chatRecord *p=head;
-	char  record[RECORD_LEN];
-	while(NULL != p)
+	struct chatRecord *p = head;
+	char record[RECORD_LEN];
+	while (NULL != p)
 	{
-		nodeToRecord(p,FILE_FORMAT,record);
-		p=p->next;
+		nodeToRecord(p, FILE_FORMAT, record);
+		p = p->next;
 	}
 }
 
-struct chatRecord * recordParser(char *record)
+struct chatRecord *recordParser(char *record)
 {
-	char * username;
-	char * date;
-	char * info;
+	char *username;
+	char *date;
+	char *info;
 	//解析数据，并没有出去字符串两端的空格符
-	username=strtok(record,"()");
-	date=strtok(NULL,"()");
-	info= strtok(NULL,"()");
+	username = strtok(record, "()");
+	date = strtok(NULL, "()");
+	info = strtok(NULL, "()");
 
 	//创建节点
-	return createRecordNode(username,date,"",info);
+	return createRecordNode(username, date, "", info);
 }

@@ -11,16 +11,14 @@
 /*描述：		用户状态设置、显示
 /***************************************************/
 
-
 GtkWidget *onlineStatusLabel, *onlineStatusButton, *status_menu;
 
-char* getpath(char* p);
+char *getpath(char *p);
 
-gboolean statePress( GtkWidget *widget,GdkEvent *event );
+gboolean statePress(GtkWidget *widget, GdkEvent *event);
 
 void state_response(gchar *string);
 
-GtkWidget* createStatusMenu();
+GtkWidget *createStatusMenu();
 
 #endif
-

@@ -1,7 +1,6 @@
 #ifndef _CALCULATOR_H_
 #define _CALCULATOR_H
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,9 +22,8 @@ void opreatorButtonClicked(GtkButton *button, gpointer data);
 
 void dotButtonClicked(GtkButton *button, gpointer data);
 
-void equalButtonClicked(GtkButton*button, gpointer data);
+void equalButtonClicked(GtkButton *button, gpointer data);
 
 void createCalculator(GtkWidget *widget, gpointer data);
-
 
 #endif

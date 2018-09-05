@@ -84,7 +84,7 @@ void int2str(int a, char *str)
 /*返回值：void
 /*作者： 唐回峰
 /***************************************************/
-GtkWidget *xpm_label_box(gchar *xpm_filename,gchar *label_text)
+GtkWidget *xpm_label_box(gchar *xpm_filename, gchar *label_text)
 {
 	GtkWidget *box;
 	GtkWidget *label;
@@ -105,7 +105,6 @@ GtkWidget *xpm_label_box(gchar *xpm_filename,gchar *label_text)
 
 	return box;
 }
-
 
 GtkWidget *label_xmp_box(gchar *label_text, gchar *xpm_filename)
 {
@@ -521,7 +520,6 @@ void addFace(GtkWidget *button, textView *textViewAll)
 	gtk_widget_show_all(icon);
 }
 
-
 /**************************************************/
 /*名称：changeFace
 /*描述：回调函数，更改皮肤
@@ -696,7 +694,6 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 	strcat(title, ip);
 	strcat(title, ")");
 
-
 	gtk_window_set_resizable(GTK_WINDOW(ip_window_main->window), FALSE);
 	//设置聊天窗口位置、大小及title
 	gtk_window_set_position(GTK_WINDOW(ip_window_main->window), GTK_WIN_POS_CENTER);
@@ -768,7 +765,7 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 	strcat(before2, after);
 	label = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(label), before2);
-//	printf("here done.\n");
+	//	printf("here done.\n");
 
 	//设置图片按钮
 	gtk_button_set_image(button_img, image2);
@@ -801,9 +798,9 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 	textViewAll->ip = ip;
 	textViewAll->name = name;
 	strcpy(textViewAll->message, "\0");
-	
-	textViewAll->textView1 = gtk_text_view_new();	 //textView1;
-	textViewAll->textView2 = gtk_text_view_new();	 //textView2;
+
+	textViewAll->textView1 = gtk_text_view_new(); //textView1;
+	textViewAll->textView2 = gtk_text_view_new(); //textView2;
 	//printf("here done.\n");
 	textViewAll->buffer1 = gtk_text_buffer_new(NULL); //buffer1;
 	//printf("here done.\n");
@@ -831,7 +828,7 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 	g_object_unref(pixmap);
 
 	setOnTextView(ip, textViewAll);
-	
+
 	gtk_box_pack_start(GTK_BOX(vbox_textview1), scrolled_window1, TRUE, TRUE, 0);
 	gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW(scrolled_window1), textViewAll->textView1);
 
@@ -863,14 +860,12 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 	//点击计算器按钮，弹出计算器
 	gtk_signal_connect(G_OBJECT(button_calc), "clicked", G_CALLBACK(createCalculator), NULL);
 
-
 	//设置盒子大小
 	gtk_widget_set_size_request(vbox_all, 555, 580);
 	gtk_widget_set_size_request(hbox_mid_tool, 550, 40);
 	gtk_widget_set_size_request(vbox_textview1, 550, 275);
 	gtk_widget_set_size_request(vbox_textview2, 550, 120);
 	gtk_widget_set_size_request(vbox_img, 200, 200);
-
 
 	gtk_box_pack_start(GTK_BOX(vbox_all), hbox_top_tool, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(vbox_all), hbox_main, FALSE, FALSE, 0);
@@ -879,7 +874,7 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 	gtk_box_pack_start(GTK_BOX(hbox_main), vbox_img, FALSE, FALSE, 0);
 
 	gtk_box_pack_start(GTK_BOX(vbox_chat), vbox_textview1, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(vbox_chat), hbox_mid_tool, 0, 0, 0);		//1 1 0
+	gtk_box_pack_start(GTK_BOX(vbox_chat), hbox_mid_tool, 0, 0, 0); //1 1 0
 	gtk_box_pack_start(GTK_BOX(vbox_chat), vbox_textview2, TRUE, TRUE, 0);
 	gtk_box_pack_end(GTK_BOX(vbox_chat), hbox_bot_tool, FALSE, FALSE, 0);
 
@@ -892,7 +887,7 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 	gtk_box_pack_start(GTK_BOX(vbox_top), label_name, TRUE, FALSE, 1);
 	gtk_box_pack_start(GTK_BOX(vbox_top), label, TRUE, FALSE, 1);
 
-	gtk_box_pack_start(GTK_BOX(hbox_mid_tool), button_font, 1, 1, 0);		// 0 0 0
+	gtk_box_pack_start(GTK_BOX(hbox_mid_tool), button_font, 1, 1, 0); // 0 0 0
 	gtk_box_pack_start(GTK_BOX(hbox_mid_tool), button_emoj, 1, 1, 0);
 	gtk_box_pack_start(GTK_BOX(hbox_mid_tool), button_cut, 1, 1, 0);
 	gtk_box_pack_start(GTK_BOX(hbox_mid_tool), button_file, 1, 1, 0);
@@ -919,12 +914,9 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 
 	/* Finally we add hbox to the window, and show all widgets */
 
-
 	gtk_container_add(GTK_CONTAINER(ip_window_main->window), vbox_all);
 
-
 	gtk_widget_show_all(ip_window_main->window);
-
 
 	if (msg != NULL)
 	{
@@ -934,5 +926,4 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 	}
 
 	gtk_main();
-
 }

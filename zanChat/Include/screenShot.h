@@ -1,9 +1,9 @@
 #ifndef _SCREENSHOT_H_
 #define _SCREENSHOT_H_
 
-#include<gtk/gtk.h>
-#include<string.h>
-#include<stdlib.h>
+#include <gtk/gtk.h>
+#include <string.h>
+#include <stdlib.h>
 
 /**************************************************/
 /*名称：		screenShot.h

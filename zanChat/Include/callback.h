@@ -13,7 +13,6 @@
 /*描述：		回调函数汇总
 /***************************************************/
 
-
 void destroyAll();
 
 void loadSettings();
@@ -30,7 +29,6 @@ void trayIconPopup(GtkStatusIcon *status_icon, guint button, guint32 activate_ti
 
 void trayIconActivated(GObject *trayIcon, gpointer window);
 
-gboolean window_state_event (GtkWidget *widget, GdkEventWindowState *event, gpointer data);
+gboolean window_state_event(GtkWidget *widget, GdkEventWindowState *event, gpointer data);
 
 #endif
-

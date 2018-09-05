@@ -6,13 +6,13 @@
 /*作者： 唐回峰
 /***************************************************/
 
-
-
-GdkPixbuf* filenameToPixbufConverter(gchar *filename) {
+GdkPixbuf *filenameToPixbufConverter(gchar *filename)
+{
 	GdkPixbuf *pixbuf;
 	GError *error = NULL;
 	pixbuf = gdk_pixbuf_new_from_file(filename, &error);
-	if(!pixbuf) {
+	if (!pixbuf)
+	{
 		fprintf(stderr, "%s\n", error->message);
 		g_error_free(error);
 	}
@@ -28,7 +28,8 @@ GdkPixbuf* filenameToPixbufConverter(gchar *filename) {
 /*返回值：GtkWidget*、button控件指针
 /*作者： 唐回峰
 /***************************************************/
-GtkWidget* picToButtonConverter(gchar *filename) {
+GtkWidget *picToButtonConverter(gchar *filename)
+{
 	GtkWidget *image;
 	GtkWidget *button;
 

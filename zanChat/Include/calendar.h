@@ -4,7 +4,7 @@
 #include <string.h>
 #include <gtk/gtk.h>
 #include <time.h>
-#include  <gdk/gdkkeysyms.h>
+#include <gdk/gdkkeysyms.h>
 #include "chatWindow.h"
 #define DEF_PAD 10
 #define DEF_PAD_SMALL 5
@@ -15,10 +15,11 @@
 /*描述：		日历小功能相关函数实现
 /***************************************************/
 
-typedef struct _CalendarData {
+typedef struct _CalendarData
+{
   GtkWidget *flag_checkboxes[5];
-  gboolean  settings[5];
-  gchar     *font;
+  gboolean settings[5];
+  gchar *font;
   GtkWidget *font_dialog;
   GtkWidget *window;
   GtkWidget *prev2_sig;
@@ -28,7 +29,8 @@ typedef struct _CalendarData {
 } CalendarData;
 
 /*函数接口*/
-enum {
+enum
+{
   calendar_show_header,
   calendar_show_days,
   calendar_month_change,

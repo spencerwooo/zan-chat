@@ -7,5 +7,5 @@
 /*描述：		将文件文本转换为gtk控件显示文本信息
 /***************************************************/
 
-GdkPixbuf* strToPixbufConverter(gchar *filename);
+GdkPixbuf *strToPixbufConverter(gchar *filename);
 #endif

@@ -6,8 +6,6 @@
 /*作者：		唐回峰、邓竣麟
 /***************************************************/
 
-
-
 /**************************************************/
 /*名称：		gtkdateToDateConverter
 /*描述：		将参数1表示的时间转换为字符串格式
@@ -18,11 +16,11 @@
 /*
 /*作者：		唐回峰
 /***************************************************/
-gchar* gtkdateToDateConverter(GtkWidget *calendar)
+gchar *gtkdateToDateConverter(GtkWidget *calendar)
 {
-	gchar* ret;
-    ret = (gchar*)malloc(10*sizeof(char));
-	memset(ret, 0, sizeof(ret));
+    gchar *ret;
+    ret = (gchar *)malloc(10 * sizeof(char));
+    memset(ret, 0, sizeof(ret));
     guint year, month, day;
     gtk_calendar_get_date(GTK_CALENDAR(calendar), &year, &month, &day);
     month++;

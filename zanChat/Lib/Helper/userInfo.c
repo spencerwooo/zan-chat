@@ -34,7 +34,7 @@ struct userinfo *addUser(struct userinfo *head, struct userinfo *user)
 }
 
 struct userinfo *deleteUser(struct userinfo *head, char *ip)
-{ 
+{
 
     struct userinfo *p, *p1;
     p1 = NULL;
