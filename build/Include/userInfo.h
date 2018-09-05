@@ -19,35 +19,34 @@
 
 struct userinfo
 {
-    char  name[SIZE_1];
-    char  group[SIZE_1];
-    char  ip[SIZE_1];
-    char  signature[SIZE_2];
+    char name[SIZE_1];
+    char group[SIZE_1];
+    char ip[SIZE_1];
+    char signature[SIZE_2];
     int picture;
-    int image_code;//用户形象代码
-    int avatar_code;//avatar code
+    int image_code;        //用户形象代码
+    int avatar_code;       //avatar code
     textView *textViewAll; //add by wanglong 2010-07-08
-    struct chatRecord * record;
-    struct userinfo * next;
+    struct chatRecord *record;
+    struct userinfo *next;
 };
 
-struct userinfo *  addUser(struct userinfo * head,struct userinfo * user);
+struct userinfo *addUser(struct userinfo *head, struct userinfo *user);
 
-struct userinfo * deleteUser(struct userinfo * head,char * ip);
+struct userinfo *deleteUser(struct userinfo *head, char *ip);
 
-struct userinfo * seekUser(struct userinfo * head,char * ip);
+struct userinfo *seekUser(struct userinfo *head, char *ip);
 
-struct userinfo * refreshUser(struct userinfo * head,struct userinfo * user);
+struct userinfo *refreshUser(struct userinfo *head, struct userinfo *user);
 
-void displayAll(struct userinfo * head);
+void displayAll(struct userinfo *head);
 
-void display(struct userinfo * user);
+void display(struct userinfo *user);
 
-struct userinfo * createOneUser(char * name, char * group,char * ip,char * signature,int img_code, int avatar_code);
+struct userinfo *createOneUser(char *name, char *group, char *ip, char *signature, int img_code, int avatar_code);
 
-int setOnTextView(char* ip,textView * tv);
+int setOnTextView(char *ip, textView *tv);
 
-void setOffTextView(char* ip);
+void setOffTextView(char *ip);
 
 #endif
-

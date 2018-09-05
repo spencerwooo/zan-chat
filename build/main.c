@@ -349,7 +349,7 @@ void *create(int argc, char *argv[])
 	//gtk_window_set_skip_taskbar_hint(GTK_WINDOW(window), TRUE);
 	g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(destroyAll), NULL);
 	g_signal_connect_swapped(G_OBJECT(window), "delete_event", G_CALLBACK(gtk_widget_destroy), G_OBJECT(window));
-	gtk_window_set_title(GTK_WINDOW(window), "mushRoom");
+	gtk_window_set_title(GTK_WINDOW(window), "zanChat");
 	gtk_window_set_icon(GTK_WINDOW(window), strToPixbufConverter("./Source/Icon/mushRoomlogo.jpg"));
 
 	// skin settings

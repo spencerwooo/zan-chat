@@ -11,45 +11,47 @@
 /*描述：		设置页面的功能实现及显示
 /***************************************************/
 
-enum {
+enum
+{
 	PIXBUF_COLUMN,
 	TEXT_COLUMN,
 	N_COLUMN
 };
 typedef struct _listitem ListItem;
-struct _listitem {
+struct _listitem
+{
 	const gchar *pix;
 	const gchar *text;
 };
 
 typedef struct _item_image ListItemImage;
-struct _item_image{
-	 gchar *fcname;
-	 gchar *fcimage;
+struct _item_image
+{
+	gchar *fcname;
+	gchar *fcimage;
 };
 void send_info(GtkWidget *button, gpointer data);
 
-GtkListStore* createListModel(void);
+GtkListStore *createListModel(void);
 
-GtkWidget* createListView(GtkListStore *list_store);
+GtkWidget *createListView(GtkListStore *list_store);
 
 GtkWidget *createItem(gint i);
 
 void notebookOnChanged(GtkWidget *widget, gpointer notebook);
 
-void entry_text(GtkWidget *widget,gpointer entry);
+void entry_text(GtkWidget *widget, gpointer entry);
 
 void createSettings();
 
-void setUserName(GtkWidget *widget,gpointer entry);
+void setUserName(GtkWidget *widget, gpointer entry);
 
-void entry_group(GtkWidget *widget,gpointer entry);
+void entry_group(GtkWidget *widget, gpointer entry);
 
-void entry_sig(GtkWidget *widget,gpointer entry);
+void entry_sig(GtkWidget *widget, gpointer entry);
 
-void set_soft_quit(GtkWidget *widget,GtkWidget *set_soft);
+void set_soft_quit(GtkWidget *widget, GtkWidget *set_soft);
 
-void my_callback_function(GtkWidget *widget,gpointer combo);
-
+void my_callback_function(GtkWidget *widget, gpointer combo);
 
 #endif

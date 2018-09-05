@@ -756,7 +756,7 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 	label_name = gtk_label_new(NULL);
 	char before[50] = "<span foreground='black' font_desc='30'>";
 	strcat(before, name);
-	char after[20] = "        	</span>";
+	char after[20] = "</span>";
 	strcat(before, after);
 	gtk_label_set_markup(GTK_LABEL(label_name), before);
 	char before2[50] = "<span foreground='black' font_desc='10'>";

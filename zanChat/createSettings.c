@@ -312,7 +312,7 @@ void my_callback_function(GtkWidget *widget, gpointer combo)
 		{
 
 			my_avatar_code = i;
-			printf("avatar changed %d\n", my_avatar_code);
+			printf("Avatar changed %d\n", my_avatar_code);
 
 			image = gtk_image_new_from_file(g[i].fcimage);
 			image1 = gtk_image_new_from_file(g[i].fcimage);
@@ -344,7 +344,7 @@ void createSettings()
 	GtkListStore *model;
 	GtkWidget *frame;
 	GtkWidget *label;
-	GtkWidget *label1;
+	// GtkWidget *label1;
 	GtkWidget *button;
 	GtkWidget *entry;
 
@@ -804,32 +804,32 @@ void createSettings()
 		hbox = gtk_hbox_new(TRUE, 5);
 		frame = gtk_frame_new("皮肤设置");
 
-		table = gtk_table_new(7, 4, TRUE);
-		gtk_container_set_border_width(GTK_CONTAINER(table), 1);
+		table = gtk_table_new(5, 1, TRUE);
+		gtk_container_set_border_width(GTK_CONTAINER(table), 0);
 		gtk_container_add(GTK_CONTAINER(frame), table);
 
-		GtkWidget *label1 = gtk_label_new("风格选择：");
-		gtk_table_attach_defaults(GTK_TABLE(table), label1, 0, 1, 0, 1);
+		// GtkWidget *label1 = gtk_label_new("背景选择：");
+		// gtk_table_attach_defaults(GTK_TABLE(table), label1, 0, 1, 0, 1);
 
-		button_1 = gtk_button_new_with_label("经典风格");
+		button_1 = gtk_button_new_with_label("素鼠");
 		g_signal_connect(G_OBJECT(button_1), "clicked", G_CALLBACK(setSkin1), window);
 		gtk_widget_modify_bg(button_1, GTK_STATE_PRELIGHT, &orange);
-		gtk_table_attach_defaults(GTK_TABLE(table), button_1, 1, 2, 1, 2);
+		gtk_table_attach_defaults(GTK_TABLE(table), button_1, 0, 1, 0, 1);
 
-		button_2 = gtk_button_new_with_label("怀旧风格");
+		button_2 = gtk_button_new_with_label("利休白茶");
 		g_signal_connect(G_OBJECT(button_2), "clicked", G_CALLBACK(setSkin2), window);
 		gtk_widget_modify_bg(button_2, GTK_STATE_PRELIGHT, &orange);
-		gtk_table_attach_defaults(GTK_TABLE(table), button_2, 1, 2, 2, 3);
+		gtk_table_attach_defaults(GTK_TABLE(table), button_2, 0, 1, 1, 2);
 
-		button_3 = gtk_button_new_with_label("清新风格");
+		button_3 = gtk_button_new_with_label("中红新橘");
 		g_signal_connect(G_OBJECT(button_3), "clicked", G_CALLBACK(setSkin3), window);
 		gtk_widget_modify_bg(button_3, GTK_STATE_PRELIGHT, &orange);
-		gtk_table_attach_defaults(GTK_TABLE(table), button_3, 2, 3, 1, 2);
+		gtk_table_attach_defaults(GTK_TABLE(table), button_3, 0, 1, 2, 3);
 
-		button_4 = gtk_button_new_with_label("自然风格");
+		button_4 = gtk_button_new_with_label("露草");
 		g_signal_connect(G_OBJECT(button_4), "clicked", G_CALLBACK(setSkin4), window);
 		gtk_widget_modify_bg(button_4, GTK_STATE_PRELIGHT, &orange);
-		gtk_table_attach_defaults(GTK_TABLE(table), button_4, 2, 3, 2, 3);
+		gtk_table_attach_defaults(GTK_TABLE(table), button_4, 0, 1, 3, 4);
 
 		gtk_notebook_append_page(GTK_NOTEBOOK(notebook0), frame, label);
 

@@ -6,21 +6,21 @@
 /*作者： 周育聪
 /***************************************************/
 
-void getCurrentDay(char  buf[],int size)
+void getCurrentDay(char buf[], int size)
 {
 	time_t timep;
-	struct tm * p;
+	struct tm *p;
 	time(&timep);
 	p = localtime(&timep);
-	strftime(buf,size,"%Y%m%d",p);
+	strftime(buf, size, "%Y%m%d", p);
 }
 
-void getCurrentTime(char buf[],int size)
+void getCurrentTime(char buf[], int size)
 {
 	time_t timep;
-	struct tm * p;
+	struct tm *p;
 	time(&timep);
 	p = localtime(&timep);
-	strftime(buf,size,"%Y-%m-%d    %H:%M:%S",p);
-	printf("%s\n",buf);
-}	
+	strftime(buf, size, "%Y-%m-%d    %H:%M:%S", p);
+	printf("%s\n", buf);
+}

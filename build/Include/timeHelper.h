@@ -9,8 +9,8 @@
 /*描述：		获取当前日期、时间
 /***************************************************/
 
-void getCurrentDay(char  buf[],int size);
+void getCurrentDay(char buf[], int size);
 
-void getCurrentTime(char buf[],int size);
+void getCurrentTime(char buf[], int size);
 
 #endif

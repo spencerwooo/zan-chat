@@ -5,4 +5,4 @@
 /*描述：		将gtk自带calendar控件转换为字符串的时间信息
 /***************************************************/
 
-gchar* gtkdateToDateConverter(GtkWidget *calendar);
+gchar *gtkdateToDateConverter(GtkWidget *calendar);
