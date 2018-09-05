@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![love](https://img.shields.io/badge/Made%20with-love-ff69b4.svg)
-![jsbox](https://img.shields.io/badge/Ubuntu%20&%20Arch%20Linux-Optimized-orange.svg)
+![Linux](https://img.shields.io/badge/Ubuntu%20&%20Arch%20Linux-Optimized-orange.svg)
 
 A peer-to-peer communication system. BIT 小学期软件开发实训。
 
