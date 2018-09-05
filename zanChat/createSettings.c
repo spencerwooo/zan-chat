@@ -804,7 +804,7 @@ void createSettings()
 		hbox = gtk_hbox_new(TRUE, 5);
 		frame = gtk_frame_new("皮肤设置");
 
-		table = gtk_table_new(5, 1, TRUE);
+		table = gtk_table_new(4, 1, TRUE);
 		gtk_container_set_border_width(GTK_CONTAINER(table), 0);
 		gtk_container_add(GTK_CONTAINER(frame), table);
 

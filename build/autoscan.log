@@ -1,7 +1,0 @@
-autoscan: warning: missing AC_CHECK_FUNCS([socket]) wanted by: 
-	main.c:430
-	Lib/Trans/fileTrans.c:50
-	Lib/Trans/fileTrans.c:80
-	Lib/Trans/fileTrans.c:229
-autoscan: warning: missing AC_CHECK_HEADERS([fcntl.h]) wanted by: 
-	Lib/Trans/fileTrans.c:10
