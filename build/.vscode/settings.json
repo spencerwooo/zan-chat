@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "message.h": "c",
+        "linpop.h": "c",
+        "initializer_list": "cpp",
+        "type_traits": "cpp",
+        "xutility": "cpp",
+        "chatwindow.h": "c",
+        "calculator.h": "c",
+        "createsettings.h": "c"
+    }
+}
