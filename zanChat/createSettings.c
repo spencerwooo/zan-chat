@@ -380,7 +380,7 @@ void createSettings()
 		gtk_window_set_position(GTK_WINDOW(soft_set), GTK_WIN_POS_CENTER);
 		gtk_container_set_border_width(GTK_CONTAINER(soft_set), 5);
 		gtk_widget_set_size_request(soft_set, 560, 620);
-		gtk_window_set_icon(GTK_WINDOW(soft_set), filenameToPixbufConverter("Source/Icon/Settings/logo.jpg"));
+		gtk_window_set_icon(GTK_WINDOW(soft_set), filenameToPixbufConverter("Source/Icon/Settings/logo.png"));
 
 		notebook0 = gtk_notebook_new();
 		gtk_widget_modify_bg(notebook0, GTK_STATE_NORMAL, &white);

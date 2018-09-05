@@ -12,4 +12,3 @@ automake --add-missing
 ./configure
 make
 ./test
-
