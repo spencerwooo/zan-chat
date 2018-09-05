@@ -20,7 +20,7 @@
 /**************************************************/
 /*名称：		main.c
 /*描述：		主界面窗口，定义主调函数、初始化函数等功能主函数
-/*作成日期： 2018-09-06
+/*作成日期： 2017-09-06
 /*作者：		唐回峰、周育聪
 /***************************************************/
 
@@ -47,6 +47,9 @@ char date_global[10];
 char sex[10] = "男";
 int s;
 
+static GtkWidget *entry1;
+static GtkWidget *entry2;
+
 GtkWidget *entry; //好友列表中获取选项的值
 
 GtkWidget *view; //显示好友列表
@@ -68,7 +71,7 @@ struct Msg *Msghead = NULL;
 /**************************************************/
 /*名称：create_file_dir
 /*描述：创建程序所需文件夹
-/*作成日期： 2018-08-31
+/*作成日期： 2017-08-31
 /*参数：void
 /*返回值：void
 /*作者： 唐回峰
@@ -102,7 +105,7 @@ void create_chat_file_dir()
 /**************************************************/
 /*名称：enter_ip
 /*描述：回调函数，显示ip查询窗口
-/*作成日期： 2018-09-02
+/*作成日期： 2017-09-02
 /*参数：
 /*		参数1：GtkWidget *、widget、点击按钮控件
 /*		参数2：GtkWidget *、entry、输入窗口
@@ -130,7 +133,7 @@ void enter_ip(GtkWidget *widget, GtkWidget *entry)
 /**************************************************/
 /*名称：createUserStaff
 /*描述：初始化用户信息显示区域控件
-/*作成日期： 2018-09-02
+/*作成日期： 2017-09-02
 /*参数：void
 /*返回值：void
 /*作者： 唐回峰
@@ -201,7 +204,7 @@ GtkWidget *view;
 /**************************************************/
 /*名称：remove_all
 /*描述：清除主窗口列表中信息
-/*作成日期： 2018-09-01
+/*作成日期： 2017-09-01
 /*参数：void
 /*返回值：void
 /*作者： 唐回峰
@@ -226,7 +229,7 @@ void remove_all(void)
 /*名称：getVboxMid
 /*描述：生成主界面中好友列表，调用全局变量head
 /*		注意：head并非在本函数初始化
-/*作成日期： 2018-09-02
+/*作成日期： 2017-09-02
 /*参数：void
 /*返回值：void
 /*作者： 周育聪
@@ -329,7 +332,7 @@ void getVboxMid()
 /**************************************************/
 /*名称：create
 /*描述：生成主窗口界面，初始化
-/*作成日期： 2018-09-02
+/*作成日期： 2017-09-02
 /*参数：void
 /*返回值：void
 /*作者： 唐回峰、周育聪
@@ -409,15 +412,166 @@ void *create(int argc, char *argv[])
 
 	gtk_widget_show_all(window);
 
-	//createChatWindow("127.0.0.1", "Someone's name", "2018-09-06-10:03\nhello - -\0", "Hello it's zyc -- ", 1, 1);
+	//createChatWindow("127.0.0.1", "Someone's name", "2017-09-06-10:03\nhello - -\0", "Hello it's zyc -- ", 1, 1);
 
 	gtk_main();
+}
+/**************************************************/
+/*名称：login
+/*描述：生成log in界面，初始化
+/*作成日期： 2018-09-02
+/*参数：void
+/*返回值：void
+/*作者： Archie
+/***************************************************/
+
+int win = 0, goin = 0;
+char str[100];
+void on_button_clicked(GtkWidget *button, gpointer data)
+{
+	const gchar *username = gtk_entry_get_text(GTK_ENTRY(entry1));
+	const gchar *password = gtk_entry_get_text(GTK_ENTRY(entry2));
+
+	/*for (int i = 0; i < 20; i++)
+	{
+		if (username[i] == '\0') {str[i] = username[i]; break;}
+		else str[i] = username[i];
+	}*/
+
+	char user_name1[20], passWord[20], oneline[50], namelen = 0, passlen = 0;
+
+	int tag = 1;
+	FILE *fp;
+	fp = fopen("./users/log", "r");
+	for (int i = 0; i < 10; i++)
+	{
+		tag = 1;
+		memset(user_name1, 0, sizeof(user_name1));
+		memset(passWord, 0, sizeof(passWord));
+		fscanf(fp, "%s", user_name1);
+		fscanf(fp, "%s", passWord);
+
+		g_print("%s\n", username);
+		g_print("%s\n", password);
+		g_print("%s\n", user_name1);
+		g_print("%s\n", passWord);
+
+		for (int j = 0; j < 20; j++)
+		{
+			if (user_name1[j] == '\0')
+				if (j != 0)
+					break;
+				else
+				{
+					tag = 0;
+					break;
+				}
+			if (user_name1[j] != username[j])
+			{
+				tag = 0;
+				break;
+			}
+		}
+		if (tag == 0)
+			continue;
+
+		for (int j = 0; j < 20; j++)
+		{
+			if (passWord[j] == '\0')
+				if (j != 0)
+					break;
+				else
+				{
+					tag = 0;
+					break;
+				}
+			if (passWord[j] != password[j])
+			{
+				tag = 0;
+				break;
+			}
+		}
+		//g_print("====%d====\n", tag);
+		if (tag == 1)
+		{
+			strcpy(str, user_name1);
+			win = 1;
+			gtk_main_quit();
+		}
+	}
+}
+
+void on_clicked(GtkWidget *button, gpointer data)
+{
+	if (win == 1)
+		goin = 0;
+	else
+		goin = 1;
+	win = 1;
+	gtk_main_quit();
+}
+
+void login(int argc, char *argv[])
+{
+	gtk_init(&argc, &argv);
+
+	//char file_path[80] = {0};
+	//getcwd(file_path, FILEPATH_SIZE);
+	//char file_dir[20] = "/users";
+	//strcat(file_path, file_dir);
+	//if (access(file_path, F_OK) != 0)
+	//    mkdir(file_path, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+
+	GtkWidget *window;
+	GtkWidget *box;
+	GtkWidget *box1;
+	GtkWidget *box2;
+	GtkWidget *label1;
+	GtkWidget *label2;
+	GtkWidget *button;
+	GtkWidget *sep;
+
+	gtk_init(&argc, &argv);
+	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(on_clicked), NULL);
+	gtk_window_set_title(GTK_WINDOW(window), "登录窗口");
+	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+	gtk_container_set_border_width(GTK_CONTAINER(window), 20);
+
+	box = gtk_vbox_new(FALSE, 0);
+	gtk_container_add(GTK_CONTAINER(window), box);
+	box1 = gtk_hbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(box), box1, FALSE, FALSE, 5);
+	box2 = gtk_hbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(box), box2, FALSE, FALSE, 5);
+	sep = gtk_hseparator_new();
+	gtk_box_pack_start(GTK_BOX(box), sep, FALSE, FALSE, 5);
+
+	label1 = gtk_label_new("账  号：");
+	entry1 = gtk_entry_new();
+	gtk_box_pack_start(GTK_BOX(box1), label1, FALSE, FALSE, 5);
+	gtk_box_pack_start(GTK_BOX(box1), entry1, FALSE, FALSE, 5);
+
+	label2 = gtk_label_new("密  码：");
+	entry2 = gtk_entry_new();
+	gtk_entry_set_visibility(GTK_ENTRY(entry2), FALSE);
+	gtk_box_pack_start(GTK_BOX(box2), label2, FALSE, FALSE, 5);
+	gtk_box_pack_start(GTK_BOX(box2), entry2, FALSE, FALSE, 5);
+
+	button = gtk_button_new_with_label("登陆");
+	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(on_button_clicked), NULL);
+	g_signal_connect_swapped(G_OBJECT(button), "clicked", G_CALLBACK(gtk_widget_destroy), window);
+	gtk_box_pack_start(GTK_BOX(box), button, FALSE, FALSE, 5);
+	gtk_widget_show_all(window);
+
+	gtk_main();
+	return FALSE;
 }
 
 /**************************************************/
 /*名称：init_socket
 /*描述：初始化socket连接等信息
-/*作成日期： 2018-09-04
+/*作成日期： 2017-09-04
 /*参数：
         参数1：int*、sock、套接字
         参数2：sockaddr_in*、addr、本地socket信息
@@ -449,7 +603,7 @@ void *ui_start()
 /**************************************************/
 /*名称：main
 /*描述：主函数，程序开始的接口
-/*作成日期： 2018-09-02
+/*作成日期： 2017-09-02
 /*参数：
         参数1：GtkWidget *、 button
         参数2：filename_textView *filename_textViewAll
@@ -459,17 +613,24 @@ void *ui_start()
 int main(int argc, char *argv[])
 {
 
-	char *str = "Spencer";
+	while (!win)
+		login(argc, argv);
+
 	strcpy(user_name, str);
 	strcpy(user_group, "my friend");
-	strcpy(sigh, "ahh");
+	strcpy(sigh, "Hello ~");
 	init_socket(&s, &addr_server);
-	head = NULL;
-	pthread_create(&ui_thread, NULL, (void *)ui_start, NULL);
-	pthread_create(&chat_thread, NULL, (void *)chat_start, NULL);
 
-	pthread_join(chat_thread, NULL);
-	pthread_join(ui_thread, NULL);
+	if (goin == 0)
+	{
+		g_print("yeah~~~\n");
+		head = NULL;
+		pthread_create(&ui_thread, NULL, (void *)ui_start, NULL);
+		pthread_create(&chat_thread, NULL, (void *)chat_start, NULL);
+
+		pthread_join(chat_thread, NULL);
+		pthread_join(ui_thread, NULL);
+	}
 	//
 	return 0;
 }
