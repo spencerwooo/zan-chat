@@ -1,8 +1,12 @@
 # Zan Chat 
 
-> Zan Chat | 本项目经由赞大佬亲启认证。
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![love](https://img.shields.io/badge/Made%20with-love-ff69b4.svg)
+![jsbox](https://img.shields.io/badge/Ubuntu%20&%20Arch%20Linux-Optimized-orange.svg)
 
 A peer-to-peer communication system. BIT 小学期软件开发实训。
+
+> Zan Chat | 本项目经由赞大佬亲启认证。
 
 ![img](https://i.loli.net/2018/09/05/5b8f8ffd4942d.png)
 
