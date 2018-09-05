@@ -375,7 +375,7 @@ void createSettings()
 		gtk_window_set_title(GTK_WINDOW(soft_set), "软件设置");
 		gtk_window_set_position(GTK_WINDOW(soft_set), GTK_WIN_POS_CENTER);
 		gtk_container_set_border_width(GTK_CONTAINER(soft_set), 5);
-		gtk_widget_set_size_request(soft_set, 600, 490);
+		gtk_widget_set_size_request(soft_set, 560, 620);
 		gtk_window_set_icon(GTK_WINDOW(soft_set), filenameToPixbufConverter("Source/Icon/Settings/logo.jpg"));
 
 		notebook0 = gtk_notebook_new();
