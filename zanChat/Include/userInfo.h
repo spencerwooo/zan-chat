@@ -26,7 +26,7 @@ struct userinfo
     int picture;
     int image_code;        //用户形象代码
     int avatar_code;       //avatar code
-    textView *textViewAll; //add by wanglong 2010-07-08
+    textView *textViewAll;
     struct chatRecord *record;
     struct userinfo *next;
 };
