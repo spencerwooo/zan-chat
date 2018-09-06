@@ -150,7 +150,7 @@ void createUserStaff()
 
 	// user icon
 	photo = NULL;
-	photo = picToButtonConverter("./Source/Icon/User/4.png");
+	photo = picToButtonConverter("./Source/Icon/User/6.png");
 	gtk_button_set_relief(GTK_BUTTON(photo), GTK_RELIEF_NONE);
 	gtk_button_set_focus_on_click(GTK_BUTTON(photo), FALSE);
 	gtk_widget_set_size_request(GTK_BUTTON(photo), 80, 80);
@@ -635,8 +635,8 @@ int main(int argc, char *argv[])
 		login(argc, argv);
 
 	strcpy(user_name, str);
-	strcpy(user_group, "Friends");
-	strcpy(sigh, "巴拉拉能量");
+	strcpy(user_group, "My Friends");
+	strcpy(sigh, "巴拉拉能量！");
 	init_socket(&s, &addr_server);
 
 	if (goin == 0)
