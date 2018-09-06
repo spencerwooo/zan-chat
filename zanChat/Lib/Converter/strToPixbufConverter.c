@@ -3,11 +3,11 @@
 /**************************************************/
 /*名称：strToPixbufConverter
 /*描述：将文件转换weiGdkPixbuf
-/*作成日期： 2017-08-31
+/*作成日期： 2018-08-31
 /*参数：
 /*      参数1：gchar*、filename、文件路径
 /*返回值：GdkPixbuf*
-/*作者： 唐回峰
+/*作者： 李文煜
 /***************************************************/
 GdkPixbuf *strToPixbufConverter(gchar *filename)
 {

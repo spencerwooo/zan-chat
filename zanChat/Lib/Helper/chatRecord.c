@@ -3,8 +3,8 @@
 /**************************************************/
 /*名称：chatRecord
 /*描述：聊天文本交互相关函数
-/*作成日期： 2017-09-03
-/*作者： 唐回峰、孙明君、刘静
+/*作成日期： 2018-09-03
+/*作者： 李文煜、万伯阳
 /***************************************************/
 
 struct chatRecord *createRecordNode(char *username, char *date, char *ip, char *record)
@@ -21,13 +21,13 @@ struct chatRecord *createRecordNode(char *username, char *date, char *ip, char *
 /**************************************************/
 /*名称：saveRecord
 /*描述：将一条消息保存至文件，以ip、时间分类
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：
 /*      参数1：struct chatRecord *、head、记录聊天信息的头结点
 /*		参数2：char *、ip、对方ip地址
 /*		参数3：char *、date、聊天日期
 /*返回值：void
-/*作者： 刘静、唐回峰
+/*作者： 邵子涵、程孟祺
 /***************************************************/
 void saveRecord(struct chatRecord *head, char *ip, char *date)
 {
@@ -78,12 +78,12 @@ struct chatRecord *setOffRecord(struct chatRecord *head)
 /**************************************************/
 /*名称：readRecord
 /*描述：读取聊天记录
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：
 /*		参数1：char *、ip、对方ip地址
 /*		参数2：char *、date、聊天日期
 /*返回值：struct chatRecord *、消息文本链表头结点
-/*作者： 刘静、唐回峰
+/*作者： 邵子涵、韩昌云
 /***************************************************/
 struct chatRecord *readRecord(char *ip, char *date)
 {
@@ -166,11 +166,11 @@ struct chatRecord *addRecordNode(struct chatRecord *head, struct chatRecord *nod
 /**************************************************/
 /*名称：record_display
 /*描述：显示一条消息记录
-/*作成日期： 2017-09-03
+/*作成日期： 2018-09-03
 /*参数：
 /*      参数1：struct chatRecord *、head、记录聊天信息的头结点
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 韩昌云、程孟祺
 /***************************************************/
 void record_display(struct chatRecord *head)
 {

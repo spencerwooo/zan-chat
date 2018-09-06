@@ -16,8 +16,8 @@
 /********************************************/
 /*名称：sendMsg.c
 /*描述：定义发送函数及相关功能函数
-/*作者：唐回峰
-/*日期：2017-09-06
+/*作者：李文煜
+/*日期：2018-09-06
 /********************************************/
 
 extern int s;
@@ -39,7 +39,7 @@ void getSystemTime(char buf[])
 /*		参数1：GtkWidget *、button
 /*		参数2：textView *、textViewAll、显示文本框
 /*返回值：VOID
-/*作者：	唐回峰
+/*作者：李文煜
 /***************************************************/
 void sendToTextView1(GtkWidget *button, textView *textViewAll)
 {

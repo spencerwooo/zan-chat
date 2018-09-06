@@ -21,7 +21,7 @@
 /*名称：		main.c
 /*描述：		主界面窗口，定义主调函数、初始化函数等功能主函数
 /*作成日期： 2018-09-06
-/*作者：		唐回峰、周育聪
+/*作者：		武上博、阿琪
 /***************************************************/
 
 #define FILEPATH_SIZE 80
@@ -74,7 +74,7 @@ struct Msg *Msghead = NULL;
 /*作成日期： 2018-08-31
 /*参数：void
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 武上博
 /***************************************************/
 void create_file_dir()
 {
@@ -89,6 +89,7 @@ void create_file_dir()
 
 	mkdir(file_path, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 }
+
 void create_chat_file_dir()
 {
 	char file_path[80] = {0};
@@ -110,7 +111,7 @@ void create_chat_file_dir()
 /*		参数1：GtkWidget *、widget、点击按钮控件
 /*		参数2：GtkWidget *、entry、输入窗口
 /*返回值：void
-/*作者： 周育聪
+/*作者： 阿琪
 /***************************************************/
 void enter_ip(GtkWidget *widget, GtkWidget *entry)
 {
@@ -136,7 +137,7 @@ void enter_ip(GtkWidget *widget, GtkWidget *entry)
 /*作成日期： 2018-09-02
 /*参数：void
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 武上博
 /***************************************************/
 void createUserStaff()
 {
@@ -207,7 +208,7 @@ GtkWidget *view;
 /*作成日期： 2018-09-01
 /*参数：void
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 武上博
 /***************************************************/
 void remove_all(void)
 {
@@ -232,7 +233,7 @@ void remove_all(void)
 /*作成日期： 2018-09-02
 /*参数：void
 /*返回值：void
-/*作者： 周育聪
+/*作者： 阿琪
 /***************************************************/
 void getVboxMid()
 {
@@ -330,12 +331,12 @@ void getVboxMid()
 }
 
 /**************************************************/
-/*名称：create
-/*描述：生成主窗口界面，初始化
-/*作成日期： 2018-09-02
-/*参数：void
-/*返回值：void
-/*作者： 唐回峰、周育聪
+/* 名称：create
+/* 描述：生成主窗口界面，初始化
+/* 作成日期： 2018-09-02
+/* 参数：void
+/* 返回值：void
+/* 作者：武上博、阿琪
 /***************************************************/
 void *create(int argc, char *argv[])
 {
@@ -422,7 +423,7 @@ void *create(int argc, char *argv[])
 /*作成日期： 2018-09-02
 /*参数：void
 /*返回值：void
-/*作者： 阿琪，刘嘉伟，还有一丢丢万伯阳
+/*作者： 邵子涵、韩昌云、程孟祺
 /***************************************************/
 
 int win = 0, goin = 0;
@@ -584,7 +585,7 @@ void login(int argc, char *argv[])
         参数1：int*、sock、套接字
         参数2：sockaddr_in*、addr、本地socket信息
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 万伯阳
 /***************************************************/
 int init_socket(int *sock, struct sockaddr_in *addr)
 {
@@ -625,7 +626,7 @@ void getUserName() {
         参数1：GtkWidget *、 button
         参数2：filename_textView *filename_textViewAll
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 阿琪
 /***************************************************/
 int main(int argc, char *argv[])
 {

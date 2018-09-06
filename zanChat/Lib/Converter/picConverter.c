@@ -2,8 +2,8 @@
 /**************************************************/
 /*名称：picConverter.h
 /*描述：定义图片-组件转换函数
-/*作成日期： 2017-08-31
-/*作者： 唐回峰
+/*作成日期： 2018-08-31
+/*作者： 武上博
 /***************************************************/
 
 GdkPixbuf *filenameToPixbufConverter(gchar *filename)
@@ -22,11 +22,11 @@ GdkPixbuf *filenameToPixbufConverter(gchar *filename)
 /**************************************************/
 /*名称：picToButtonConverter
 /*描述：将指定路径的图片转换成button控件
-/*作成日期： 2017-08-31
+/*作成日期： 2018-08-31
 /*参数：
 /*      参数1：gchar*、filename、图片路径
 /*返回值：GtkWidget*、button控件指针
-/*作者： 唐回峰
+/*作者： 阿琪
 /***************************************************/
 GtkWidget *picToButtonConverter(gchar *filename)
 {

@@ -3,8 +3,8 @@
 /**************************************************/
 /*名称：		calculator.h
 /*描述：		实现计算机插件的显示、输入、计算等相关功能
-/*作成日期：	2017-08-31
-/*作者：		唐回峰
+/*作成日期：	2018-08-31
+/*作者：		李文煜
 /*
 /**************************************************/
 GtkWidget *entry;
@@ -30,10 +30,10 @@ gint cnt;
 /**************************************************/
 /*名称：		calculator_init
 /*描述：		初始化计算器状态
-/*作成日期：	2017-08-31
+/*作成日期：	2018-08-31
 /*参数：		VOID
 /*返回值：	VOID
-/*作者：		唐回峰
+/*作者：		李文煜
 /***************************************************/
 void calculatorInit()
 {
@@ -54,12 +54,12 @@ void calculatorInit()
 /**************************************************/
 /*名称：		clearButtonClicked
 /*描述：		重置计算器状态
-/*作成日期：	2017-08-31
+/*作成日期：	2018-08-31
 /*参数：		
 		参数1：button、GtkButton、按下的按钮控件
         参数2：data、gpointer
 /*返回值：	VOID
-/*作者：		唐回峰
+/*作者：		李文煜
 /***************************************************/
 void clearButtonClicked(GtkButton *button, gpointer data)
 {
@@ -71,12 +71,12 @@ void clearButtonClicked(GtkButton *button, gpointer data)
 /*名称：		numberButtonClicked
 /*描述：		传递按下按钮对应的数字，
 /*			经过判断后将其加入str，更新对应的操作数
-/*作成日期：	2017-08-31
+/*作成日期：	2018-08-31
 /*参数：		
 		参数1：button、GtkButton、按下的按钮控件
         参数2：data、gpointer、指向整形的指针
 /*返回值：	VOID
-/*作者：		唐回峰
+/*作者：		万伯阳
 /***************************************************/
 void numberButtonClicked(GtkButton *button, gpointer data)
 {
@@ -104,12 +104,12 @@ void numberButtonClicked(GtkButton *button, gpointer data)
 /**************************************************/
 /*名称：		opreatorButtonClicked
 /*描述：		传递按下按钮对应的运算符，经过判断保存至op
-/*作成日期：	2017-08-31
+/*作成日期：	2018-08-31
 /*参数：		
 		参数1：button、GtkButton、按下的按钮控件
         参数2：data、gpointer、指向char的指针
 /*返回值：	VOID
-/*作者：		唐回峰
+/*作者：		万伯阳
 /***************************************************/
 void opreatorButtonClicked(GtkButton *button, gpointer data)
 {
@@ -138,12 +138,12 @@ void opreatorButtonClicked(GtkButton *button, gpointer data)
 /**************************************************/
 /*名称：		dotButtonClicked
 /*描述：		按下'.'按钮后，判断其作用
-/*作成日期：	2017-08-31
+/*作成日期：	2018-08-31
 /*参数：		
 		参数1：button、GtkButton、按下的按钮控件
         参数2：data、gpointer、指向char的指针
 /*返回值：	VOID
-/*作者：		唐回峰
+/*作者：		李文煜
 /***************************************************/
 void dotButtonClicked(GtkButton *button, gpointer data)
 {
@@ -169,12 +169,12 @@ void dotButtonClicked(GtkButton *button, gpointer data)
 /*名称：		equalButtonClicked
 /*描述：		按下'='按钮后，开始对 num1，num2，op进行运算
 /*			将结果存入sum并显示
-/*作成日期：	2017-08-31
+/*作成日期：	2018-08-31
 /*参数：		
 		参数1：button、GtkButton、按下的按钮控件
         参数2：data、gpointer、指向char的指针
 /*返回值：	VOID
-/*作者：		唐回峰
+/*作者：		李文煜
 /***************************************************/
 void equalButtonClicked(GtkButton *button, gpointer data)
 {
@@ -225,12 +225,12 @@ void equalButtonClicked(GtkButton *button, gpointer data)
 /**************************************************/
 /*名称：		createCalculator
 /*描述：		显示计算器布局窗口
-/*作成日期：	2017-08-31
+/*作成日期：	2018-08-31
 /*参数：		
 		参数1：button、GtkButton、按下的按钮控件
         参数2：data、gpointer
 /*返回值：	VOID
-/*作者：		唐回峰
+/*作者：		万伯阳
 /***************************************************/
 void createCalculator(GtkWidget *widget, gpointer data)
 {

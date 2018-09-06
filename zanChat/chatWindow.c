@@ -12,8 +12,8 @@
 /**************************************************/
 /*名称：chatWindow.c
 /*描述：聊天窗口及与聊天功能、小功能接口的定义
-/*作成日期： 2017-09-05
-/*作者： 周育聪、唐回峰、孙明君
+/*作成日期： 2018-09-05
+/*作者： 武上博、刘嘉伟、阿琪
 /***************************************************/
 textView *textViewAll;
 
@@ -22,10 +22,10 @@ char date_global[10];
 /**************************************************/
 /*名称：get_system_date
 /*描述：获取当前时间
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：void
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 武上博
 /***************************************************/
 void get_system_date()
 {
@@ -77,12 +77,12 @@ void int2str(int a, char *str)
 /**************************************************/
 /*名称：xpm_label_box
 /*描述：设置图片标签
-/*作成日期： 2017-09-01
+/*作成日期： 2018-09-01
 /*参数：
         参数1：gchar*、xpm_filename、文件名
         参数2：gchar*、label_text、文本控件
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 刘嘉伟
 /***************************************************/
 GtkWidget *xpm_label_box(gchar *xpm_filename, gchar *label_text)
 {
@@ -130,12 +130,12 @@ GtkWidget *label_xmp_box(gchar *label_text, gchar *xpm_filename)
 /**************************************************/
 /*名称：showMessage
 /*描述：将接受的消息显示在消息窗口
-/*作成日期： 2017-09-03
+/*作成日期： 2018-09-03
 /*参数：
         参数1：char*、message、消息字符串
         参数2：textView*、textViewAll、消息显示控件
 /*返回值：void
-/*作者： 周育聪
+/*作者： 刘嘉伟
 /***************************************************/
 void showMessage(char *message, textView *textViewAll)
 {
@@ -292,12 +292,12 @@ void showMessageFromLocal(char *message, textView *textViewAll)
 /**************************************************/
 /*名称：parse_image_path
 /*描述：对聊天中引用的本地表情进行解析
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：
 /*		参数1：int、num、待解析的表情代码
 /*		参数2：char *、path、将对应表情图片路径在该字符串中
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 阿琪
 /***************************************************/
 void parse_image_path(int num, char *path)
 {
@@ -314,12 +314,12 @@ void parse_image_path(int num, char *path)
 /**************************************************/
 /*名称：parse_avatar_path
 /*描述：对聊天中引用的形象进行解析
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：
 /*		参数1：int、num、待解析的形象代码
 /*		参数2：char *、path、将对应形象图片路径在该字符串中
 /*返回值：void
-/*作者： 唐回峰
+/*作者：武上博
 /***************************************************/
 void parse_avatar_path(int num, char *path)
 {
@@ -361,12 +361,12 @@ void font_selection_ok(GtkWidget *button, fontWindow_textView *fontWindow_textVi
 /**************************************************/
 /*名称：fontSelect
 /*描述：回调函数，点击后弹出字体选择窗口，进行字体选择
-/*作成日期： 2017-09-03
+/*作成日期： 2018-09-03
 /*参数：
         参数1：GtkWidget *、 button、字体选择按钮
         参数2：textView *、textViewAll、文本控件
 /*返回值：void
-/*作者： 周育聪
+/*作者：武上博
 /***************************************************/
 void fontSelect(GtkWidget *button, textView *textViewAll)
 {
@@ -404,12 +404,12 @@ GtkWidget *icon;
 /**************************************************/
 /*名称：picButton_callback
 /*描述：回调函数，点选表情图标后选中表情
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：
 /*		参数1：GtkWidget *、button、对应表情按钮控件
 /*		参数2：filename_textView *、filename_textViewAll、将表情存入此控件中
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 武上博
 /***************************************************/
 void picButton_callback(GtkWidget *button, filename_textView *filename_textViewAll)
 {
@@ -426,12 +426,12 @@ void picButton_callback(GtkWidget *button, filename_textView *filename_textViewA
 /**************************************************/
 /*名称：face_button
 /*描述：生成表情选择窗口，调用face_button函数，在框内加入各表情选择按键，并设置回调函数
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：
 /*      参数1：gchar *filename，文本信息文件名
 /*		参数2：textView*、textViewAll、文本信息
 /*返回值：表情选择框的GtkWidget*指针
-/*作者： 周育聪
+/*作者： 阿琪
 /***************************************************/
 GtkWidget *face_button(gchar *filename, textView *textViewAll)
 {
@@ -455,11 +455,11 @@ GtkWidget *face_button(gchar *filename, textView *textViewAll)
 /**************************************************/
 /*名称：create_bbox
 /*描述：生成表情选择窗口
-/*作成日期： 2017-09-02
+/*作成日期： 2018-09-02
 /*参数：
 /*      参数1：filename_textView *filename_textViewAll，文本信息，用于函数调用传递
 /*返回值：表情选择框的GtkWidget*指针
-/*作者： 周育聪
+/*作者： 阿琪
 /***************************************************/
 GtkWidget *create_bbox(filename_textView *filename_textViewAll)
 {
@@ -608,12 +608,12 @@ void addFace(GtkWidget *button, textView *textViewAll)
 /**************************************************/
 /*名称：changeFace
 /*描述：回调函数，更改皮肤
-/*作成日期： 2017-09-04
+/*作成日期： 2018-09-04
 /*参数：
 /*      参数1：GtkButton *、button、按钮控件
 /*		参数2：GtkButton *、button、按钮控件
 /*返回值：void
-/*作者： 唐回峰
+/*作者： 武上博
 /***************************************************/
 void changeFace(GtkButton *button, GtkButton *window)
 {
@@ -688,12 +688,12 @@ void file_ok_sel(GtkWidget *button, GtkFileSelection *fs)
 /**************************************************/
 /*名称：fileSelect
 /*描述：显示确认窗口，文件发送功能
-/*作成日期： 2017-09-03
+/*作成日期： 2018-09-03
 /*参数：
 /*      参数1：GtkButton *、button、按钮控件
 /*		参数2：char*、data、文件路径信息
 /*返回值：void
-/*作者： 孙明君
+/*作者： 刘嘉伟
 /***************************************************/
 void fileSelect(GtkWidget *button, char *data)
 {
@@ -713,7 +713,7 @@ void chatRecordOk(GtkWidget *button, gpointer data)
 /**************************************************/
 /*名称：createChatWindow
 /*描述：生成聊天窗口界面，聊天窗口主要函数
-/*作成日期： 2017-09-04
+/*作成日期： 2018-09-04
 /*参数：
 /*      参数1：char *、ip、对方ip
 /*		参数2：char *、name、对方用户名
@@ -721,7 +721,7 @@ void chatRecordOk(GtkWidget *button, gpointer data)
 /*		参数4：char *、sig、对方签名文本
 /*		参数5 6：int、img_code avatar_code、对方形象代码
 /*返回值：void
-/*作者： 周育聪
+/*作者： 刘嘉伟
 /***************************************************/
 void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, int avatar_code)
 {

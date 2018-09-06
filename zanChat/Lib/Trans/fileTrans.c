@@ -17,8 +17,8 @@
 /********************************************/
 /*名称：filetansfer.c
 /*描述：此文件定义了文件传输相关的函数
-/*作者：唐回峰、周育聪
-/*日期：2017-09-05
+/*作者：武上博、阿琪
+/*日期：2018-09-05
 /********************************************/
 
 #define FILE_PATH_SIZE 80
@@ -33,8 +33,8 @@
 /*参数：
          参数1：file_info、file_pthread_t *、输入参数、传输文件的相关信息，其中包括文件名称和接收方的地址信息
 /*返回值：void
-/*作者：唐回峰
-/*日期：2017-09-05
+/*作者：武上博
+/*日期：2018-09-05
 
 /***************************************************/
 void *file_send(file_pthread_t *file_info)
@@ -152,8 +152,8 @@ void destroy_confirm_win(GtkWidget *a, GtkWidget *window)
 /*参数：
          参数1：char *file_name,文件名
 /*返回值：void
-/*作者：周育聪
-/*日期：2017-09-04
+/*作者：阿琪
+/*日期：2018-09-04
 /************************************************/
 void createFileConfirmWindow(char *file_name)
 {
@@ -202,8 +202,8 @@ void createFileConfirmWindow(char *file_name)
          参数1：client、struct sockaddr_in 、输入参数、发送文件方的网络地址信息
          参数2：file_name、char *、输入参数、文件名称
 /*返回值：void
-/*作者：唐回峰、周育聪
-/*日期：2017-09-05
+/*作者：武上博、阿琪
+/*日期：2018-09-05
 /************************************************/
 void file_recv(struct sockaddr_in client, char *fileName)
 {
