@@ -68,5 +68,6 @@ void setUserString();
 int *handle(argu_pthread_t *argu);
 
 void sendToTextView1(GtkWidget *button, textView *textViewAll);
+void clearTextView1(GtkWidget *button, textView *textViewAll);
 
 #endif

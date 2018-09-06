@@ -927,6 +927,8 @@ void createChatWindow(char *ip, char *name, char *msg, char *sig, int img_code, 
 
 	//点击发送按钮，发送内容
 	gtk_signal_connect(GTK_OBJECT(button_send), "clicked", GTK_SIGNAL_FUNC(sendToTextView1), textViewAll);
+	gtk_signal_connect(GTK_OBJECT(button_close), "clicked", GTK_SIGNAL_FUNC(clearTextView1), textViewAll);
+	
 	//点击字体按钮，弹出字体设置窗口
 	gtk_signal_connect(G_OBJECT(button_font), "clicked", G_CALLBACK(fontSelect), textViewAll);
 	//点击表情按钮，弹出表情列表
