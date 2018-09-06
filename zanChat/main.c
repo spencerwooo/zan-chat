@@ -608,6 +608,18 @@ void *ui_start()
 	create(0, NULL);
 }
 
+void getUserName() {
+	g_print("User Name dagoubi : %s\n", user_name);
+	FILE *userNameLog;
+	userNameLog = fopen("/tmp/zanUserNameLog", "w");
+	char *userNamePtr = user_name;
+    // fprintf(fp, "-- Received --");
+    fputs(userNamePtr, userNameLog);
+    // fprintf(userNameLog, "\n");
+    fclose(userNameLog);
+	// return user_name;
+}
+
 /**************************************************/
 /*名称：main
 /*描述：主函数，程序开始的接口
@@ -625,13 +637,14 @@ int main(int argc, char *argv[])
 		login(argc, argv);
 
 	strcpy(user_name, str);
-	strcpy(user_group, "my friend");
-	strcpy(sigh, "Hello ~");
+	strcpy(user_group, "Friends");
+	strcpy(sigh, "巴拉拉能量");
 	init_socket(&s, &addr_server);
 
 	if (goin == 0)
 	{
 		g_print("yeah~~~\n");
+		getUserName();
 		head = NULL;
 		pthread_create(&ui_thread, NULL, (void *)ui_start, NULL);
 		pthread_create(&chat_thread, NULL, (void *)chat_start, NULL);

@@ -61,5 +61,7 @@ void addFace(GtkWidget *button, textView *textViewAll);
 // void capture(GtkWidget *button, textView *textViewAll);
 void getSystemTime(char buf[]);
 void showMessage(char *message, textView *textViewAll);
+void showMessageFromLocal(char *message, textView *textViewAll);
 void chatRecordOk(GtkWidget *button, gpointer data);
+
 #endif

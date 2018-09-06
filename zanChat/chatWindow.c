@@ -162,7 +162,7 @@ void showMessage(char *message, textView *textViewAll)
 	memset(chateeName, 0, sizeof(chateeName));
 	fgets(chateeName, 50, (FILE*)chatee);
 
-	g_print("-- Received: %s--\n", chateeName);
+	g_print("#########老狗币: %s\n", chateeName);
 	getSystemTime(time);
 	if (ptr == NULL)
 	{
@@ -170,6 +170,7 @@ void showMessage(char *message, textView *textViewAll)
 		sprintf(content, "%s %s %s\n%s\n", chateeName, time, ":", text);
 		gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(textViewAll->buffer1), &start, &end);
 		gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, content, -1);
+		memset(chateeName, 0, sizeof(chateeName));
 	}
 	else
 	{
@@ -190,6 +191,7 @@ void showMessage(char *message, textView *textViewAll)
 			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, "\n", -1);
 
 			g_print("%s\n", "RECEIVE");
+			memset(chateeName, 0, sizeof(chateeName));
 		}
 		//printf("ptr != NULL\n");
 		else
@@ -209,6 +211,93 @@ void showMessage(char *message, textView *textViewAll)
 			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, "\n", -1);
 
 			g_print("%s\n", "RECEIVE");
+			memset(chateeName, 0, sizeof(chateeName));
+		}
+	}
+}
+
+
+void showMessageFromLocal(char *message, textView *textViewAll)
+{
+
+	GtkTextIter start, end;
+	GdkPixbuf *pixbuf;
+
+	char content[1024];
+	char time[30];
+	char *name;
+	char *delim = "#";
+	char *ptr;
+	char *text;
+	char *filename;
+	ptr = strstr(message, delim);
+	text = strtok(message, delim);
+	filename = strtok(NULL, delim);
+	// name = textViewAll->name;
+
+	FILE *un;
+	un = fopen("/tmp/zanUserNameLog", "r");
+	char userNameArray[50];
+	memset(userNameArray, 0, sizeof(userNameArray));
+	fgets(userNameArray, 50, (FILE*)un);
+	
+	// FILE *chatee;
+	// chatee = fopen("/tmp/zanChatLog", "r");
+	
+	// char chateeName[50];
+	// memset(chateeName, 0, sizeof(chateeName));
+	// fgets(chateeName, 50, (FILE*)chatee);
+
+	// g_print("#########老狗币: %s\n", chateeName);
+	getSystemTime(time);
+	if (ptr == NULL)
+	{
+		printf("ptr == NULL\n");
+		sprintf(content, "%s %s %s\n%s\n", userNameArray, time, ":", text);
+		gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(textViewAll->buffer1), &start, &end);
+		gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, content, -1);
+		// memset(chateeName, 0, sizeof(chateeName));
+	}
+	else
+	{
+		if (strcmp(ptr, message) == 0)
+		{
+			sprintf(content, "%s %s %s\n", userNameArray, time, ":");
+
+			g_print("%s\n", content);
+
+			gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(textViewAll->buffer1), &start, &end);
+			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, content, -1);
+
+			gtk_text_buffer_get_end_iter(textViewAll->buffer1, &end);
+			pixbuf = gdk_pixbuf_new_from_file(text, NULL);
+
+			gtk_text_buffer_insert_pixbuf(textViewAll->buffer1, &end, pixbuf);
+			gtk_text_buffer_get_end_iter(textViewAll->buffer1, &end);
+			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, "\n", -1);
+
+			g_print("%s\n", "RECEIVE");
+			// memset(chateeName, 0, sizeof(chateeName));
+		}
+		//printf("ptr != NULL\n");
+		else
+		{
+			sprintf(content, "%s %s %s\n%s", userNameArray, time, ":", text);
+
+			g_print("%s\n", content);
+
+			gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(textViewAll->buffer1), &start, &end);
+			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, content, -1);
+
+			gtk_text_buffer_get_end_iter(textViewAll->buffer1, &end);
+			pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+
+			gtk_text_buffer_insert_pixbuf(textViewAll->buffer1, &end, pixbuf);
+			gtk_text_buffer_get_end_iter(textViewAll->buffer1, &end);
+			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, "\n", -1);
+
+			g_print("%s\n", "RECEIVE");
+			// memset(chateeName, 0, sizeof(chateeName));
 		}
 	}
 }

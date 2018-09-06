@@ -71,6 +71,7 @@ void sendToTextView1(GtkWidget *button, textView *textViewAll)
 		die("send error!");
 	//send message end
 
-	showMessage(text, textViewAll);
+	// showMessage(text, textViewAll);
+	showMessageFromLocal(text, textViewAll);
 	gtk_text_buffer_delete(GTK_TEXT_BUFFER(textViewAll->buffer2), &start, &end);
 }
