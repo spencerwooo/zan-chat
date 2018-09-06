@@ -613,11 +613,8 @@ void getUserName() {
 	FILE *userNameLog;
 	userNameLog = fopen("/tmp/zanUserNameLog", "w");
 	char *userNamePtr = user_name;
-    // fprintf(fp, "-- Received --");
     fputs(userNamePtr, userNameLog);
-    // fprintf(userNameLog, "\n");
     fclose(userNameLog);
-	// return user_name;
 }
 
 /**************************************************/
@@ -652,6 +649,6 @@ int main(int argc, char *argv[])
 		pthread_join(chat_thread, NULL);
 		pthread_join(ui_thread, NULL);
 	}
-	//
+	
 	return 0;
 }

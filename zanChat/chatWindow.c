@@ -162,7 +162,6 @@ void showMessage(char *message, textView *textViewAll)
 	memset(chateeName, 0, sizeof(chateeName));
 	fgets(chateeName, 50, (FILE*)chatee);
 
-	g_print("#########老狗币: %s\n", chateeName);
 	getSystemTime(time);
 	if (ptr == NULL)
 	{
@@ -241,14 +240,6 @@ void showMessageFromLocal(char *message, textView *textViewAll)
 	memset(userNameArray, 0, sizeof(userNameArray));
 	fgets(userNameArray, 50, (FILE*)un);
 	
-	// FILE *chatee;
-	// chatee = fopen("/tmp/zanChatLog", "r");
-	
-	// char chateeName[50];
-	// memset(chateeName, 0, sizeof(chateeName));
-	// fgets(chateeName, 50, (FILE*)chatee);
-
-	// g_print("#########老狗币: %s\n", chateeName);
 	getSystemTime(time);
 	if (ptr == NULL)
 	{
@@ -256,7 +247,6 @@ void showMessageFromLocal(char *message, textView *textViewAll)
 		sprintf(content, "%s %s %s\n%s\n", userNameArray, time, ":", text);
 		gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(textViewAll->buffer1), &start, &end);
 		gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, content, -1);
-		// memset(chateeName, 0, sizeof(chateeName));
 	}
 	else
 	{
@@ -277,9 +267,7 @@ void showMessageFromLocal(char *message, textView *textViewAll)
 			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, "\n", -1);
 
 			g_print("%s\n", "RECEIVE");
-			// memset(chateeName, 0, sizeof(chateeName));
 		}
-		//printf("ptr != NULL\n");
 		else
 		{
 			sprintf(content, "%s %s %s\n%s", userNameArray, time, ":", text);
@@ -297,7 +285,6 @@ void showMessageFromLocal(char *message, textView *textViewAll)
 			gtk_text_buffer_insert(GTK_TEXT_BUFFER(textViewAll->buffer1), &end, "\n", -1);
 
 			g_print("%s\n", "RECEIVE");
-			// memset(chateeName, 0, sizeof(chateeName));
 		}
 	}
 }
