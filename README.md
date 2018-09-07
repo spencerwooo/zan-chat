@@ -10,7 +10,7 @@ A peer-to-peer communication system. BIT 小学期软件开发实训。
 
 > Zan Chat | 本项目经由赞大佬亲启认证。
 
-![img](https://i.loli.net/2018/09/05/5b8f8ffd4942d.png)
+![img](https://i.loli.net/2018/09/07/5b91cd338f81f.png)
 
 ## 项目使用 Usage
 
